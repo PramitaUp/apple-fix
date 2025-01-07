@@ -3,14 +3,14 @@ import { StyleSheet, View } from 'react-native';
 import Dropdown from './components/Dropdown';
 import TextInput from './components/TextInput';
 import NavButton from './components/NavButton';
-import MathButton from './components/MathButton';
+import ReefAlgaeView from './views/ReefAlgaeView';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Dropdown label="Your name:" id="nameSelect" items={["Name 1", "Name 2", "Name 3", "Name 4"]}></Dropdown>
-      <TextInput label="Team number:" editable={false}></TextInput>
-      <NavButton text="Go" pageName="auto"></NavButton>
+      <NavButton text="Back" pageName=""></NavButton>
+
+      <ReefAlgaeView />
 
       <StatusBar style="auto" />
     </View>
