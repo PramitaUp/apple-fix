@@ -6,9 +6,10 @@ interface DropdownProps {
   label?: string;
   id?: string;
   items: Array<string>;
+  placeholder?: string;
 }
 
-function Dropdown({ label, id, items }: DropdownProps) {
+function Dropdown({ label, id, items, placeholder }: DropdownProps) {
   var hideLabel = false
 
   if (label == undefined) {
@@ -30,9 +31,16 @@ function Dropdown({ label, id, items }: DropdownProps) {
         renderButton={(selectedItem, isOpened) => {
           return (
             <View style={styles.dropdownButtonStyle}>
-              <Text style={styles.dropdownButtonTxtStyle}>
-                {(selectedItem)}
-              </Text>
+                { !selectedItem &&
+                  <Text style={styles.dropdownButtonTxtPlaceholderStyle}>
+                    {placeholder}
+                  </Text>
+                }
+                { selectedItem &&
+                  <Text style={styles.dropdownButtonTxtStyle}>
+                    {selectedItem}
+                  </Text>
+                }
               <Icon name="chevron-down" style={styles.dropdownButtonArrowStyle} />
             </View>
           );
@@ -57,7 +65,7 @@ const styles = StyleSheet.create({
     height: 30,
     backgroundColor: '#FFF',
     borderColor: '#CCC',
-    borderRadius: 6,
+    borderRadius: 2,
     borderStyle: "solid",
     borderWidth: 1,
     flexDirection: 'row',
@@ -71,6 +79,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     color: '#151E26',
+  },
+  dropdownButtonTxtPlaceholderStyle: {
+    flex: 200,
+    verticalAlign: "middle",
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#BBB',
   },
   dropdownButtonArrowStyle: {
     fontSize: 28,
