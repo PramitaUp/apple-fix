@@ -3,7 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import Dropdown from './components/Dropdown';
 import TextInput from './components/TextInput';
 import NavButton from './components/NavButton';
-import MathButton from './components/MathButton';
 
 export default function App() {
   return (
